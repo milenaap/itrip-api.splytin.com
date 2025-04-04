@@ -24,6 +24,14 @@ nodemon app.js
 ```
 
 
+## Cors
+
+```sh
+
+npm i cors
+
+```
+
 
 
 ## Express
@@ -31,8 +39,6 @@ nodemon app.js
 ```sh
 
 npm i express
-
-
 
 ```
 
