@@ -12,7 +12,7 @@ export const userGet = (req, res = response) => {
 
 export const userPost = (req, res = response) => {
     res.status(201).json({
-        msg: 'post API'
+        msg: 'post API - Controller'
     });
 }
 
