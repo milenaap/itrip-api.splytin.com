@@ -5,7 +5,7 @@ import { response } from 'express';
 export const userGet = (req, res = response) => {
     
     res.json({
-        msg: 'get API - Controller'
+        msg: 'get API - Controller 1111'
     });
 }
 
