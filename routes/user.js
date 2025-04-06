@@ -11,9 +11,25 @@ import {
 const router = Router();
 
 
+/**
+
+List (GET): /api/usuarios
+Show (GET): /api/usuarios/:id
+Store (POST): /api/usuarios             // Se envia data
+UPDATE (PUT): /api/usuarios/:id         // Se envia data
+DELETE (DELETE): /api/usuarios/:id
+
+*/
+
+
+
 router.get('/', userGet);
 
-router.put('/', userPut);
+
+
+// .../api/usuarios/:id
+router.put('/:id', userPut);
+
 
 router.post('/', userPost);
 

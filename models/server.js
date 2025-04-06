@@ -24,6 +24,9 @@ export class Server {
         //Cors
         this.app.use( cors() ) 
 
+        // Lectura y parseo del body
+        this.app.use( express.json() )
+
         // Directorio publico
         this.app.use( express.static('public') );
 

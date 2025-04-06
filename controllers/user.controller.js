@@ -1,25 +1,41 @@
-import { response } from 'express';
+import { response, request } from 'express';
 
 
 
-export const userGet = (req, res = response) => {
+export const userGet = (req = request, res = response) => {
+
+    const { q, nombre = 'No name', apikey, page, limit } = req.query;
     
     res.json({
-        msg: 'get API - Controller 1111'
+        msg: 'get API - Controller',
+        q, 
+        nombre, 
+        apikey,
+        page,
+        limit
     });
 }
 
 
 export const userPost = (req, res = response) => {
+
+    const { nombre, edad } = req.body;
+
     res.status(201).json({
-        msg: 'post API - Controller'
+        msg: 'post API - Controller',
+        nombre, 
+        edad
     });
 }
 
 
 export const userPut = (req, res = response) => {
+
+    const { id } = req.params;
+
     res.json({
-        msg: 'put API - Controller'
+        msg: 'put API - Controller',
+        id
     });
 }
 
