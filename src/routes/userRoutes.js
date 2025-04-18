@@ -1,35 +1,23 @@
 import { Router } from 'express';
 import { 
     userDelete, 
-    userGet, 
     userPatch, 
     userPost, 
     userPut 
 } from '../controllers/user.controller.js';
+import { userListController } from '../controllers/users/userListController.js';
+import { userShowController } from '../controllers/users/userShowController.js';
+
 
 
 const router = Router();
 
 
-/**
+router.get('/', userListController);
 
-List (GET): /api/usuarios
-Show (GET): /api/usuarios/:id
-Store (POST): /api/usuarios             // Se envia data
-UPDATE (PUT): /api/usuarios/:id         // Se envia data
-DELETE (DELETE): /api/usuarios/:id
+router.get('/:id', userShowController);
 
-*/
-
-
-
-router.get('/', userGet);
-
-
-
-// .../api/usuarios/:id
 router.put('/:id', userPut);
-
 
 router.post('/', userPost);
 
