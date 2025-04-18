@@ -1,12 +1,10 @@
 import { Router } from 'express';
-import { 
-    userDelete, 
-    userPatch, 
-    userPost, 
-    userPut 
-} from '../controllers/user.controller.js';
+
 import { userListController } from '../controllers/users/userListController.js';
 import { userShowController } from '../controllers/users/userShowController.js';
+import { userStoreController } from '../controllers/users/userStoreController.js';
+import { userUpdateController } from '../controllers/users/userUpdateController.js';
+import { userDeleteController } from '../controllers/users/userDeleteController.js';
 
 
 
@@ -17,13 +15,11 @@ router.get('/', userListController);
 
 router.get('/:id', userShowController);
 
-router.put('/:id', userPut);
+router.post('/', userStoreController);
 
-router.post('/', userPost);
+router.put('/:id', userUpdateController);
 
-router.delete('/', userDelete);
-
-router.patch('/', userPatch);
+router.delete('/:id', userDeleteController);
 
 
 export default router;
