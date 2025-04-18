@@ -1,4 +1,6 @@
-# Project
+# ITrip Project
+
+
 
 
 ## Installation
@@ -7,7 +9,13 @@
 
 npm init -y
 
-npm i dotenv
+npm i express                   // Express
+npm i express-validator         // Validator fields
+npm i bcryptjs                  // Encriptar password
+
+npm i dotenv                    // DotEnv
+npm i cors                      // Cors
+
 
 ```
 
@@ -20,25 +28,6 @@ node app.js
 
 nodemon app.js
 
-
-```
-
-
-## Cors
-
-```sh
-
-npm i cors
-
-```
-
-
-
-## Express
-
-```sh
-
-npm i express
 
 ```
 

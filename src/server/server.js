@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import userRoutes from '../routes/user.js';
+import userRoutes from '../routes/userRoutes.js';
 
 
 export class Server {
@@ -8,7 +8,7 @@ export class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
-        this.userPath = '/api/usuarios';
+        this.userPath = '/api/users';
 
         // Midlewares
         this.midlewares();
@@ -36,6 +36,8 @@ export class Server {
     routes(){
         
         this.app.use( this.userPath , userRoutes)
+
+        //TODO Others routes
         
     }
 
