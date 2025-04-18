@@ -1,8 +1,6 @@
 # ITrip Project
 
 
-
-
 ## Installation
 
 ```sh
@@ -16,7 +14,6 @@ npm i bcryptjs                  // Encriptar password
 npm i dotenv                    // DotEnv
 npm i cors                      // Cors
 
-
 ```
 
 
@@ -28,6 +25,15 @@ node app.js
 
 nodemon app.js
 
+```
+
+
+
+## Sequelize - ORM
+
+```sh
+
+npm install sequelize mysql2
 
 ```
 
@@ -35,7 +41,11 @@ nodemon app.js
 
 
 
-## Handlebars
+
+
+
+
+## Opcional Handlebars
 
 Fuente: https://github.com/pillarjs/hbs
 
