@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import userRoutes from '../routes/userRoutes.js';
+import { attachBaseController } from '../middlewares/attachBaseController.js';
 
 
 export class Server {
@@ -21,14 +22,17 @@ export class Server {
 
     midlewares(){
 
-        //Cors
-        this.app.use( cors() ) 
-
-        // Lectura y parseo del body
-        this.app.use( express.json() )
-
         // Directorio publico
         this.app.use( express.static('public') );
+
+        //Cors
+        this.app.use( cors() );
+
+        // Lectura y parseo del body
+        this.app.use( express.json() );
+
+        // BaseController
+        this.app.use( attachBaseController );
 
     }
 

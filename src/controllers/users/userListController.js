@@ -1,17 +1,15 @@
 import { response, request } from 'express';
+import User from '../../models/User.js';
 
 
 
 export const userListController = async(req = request, res = response) => {
-
-    const { q, nombre = 'No name', apikey, page, limit } = req.query;
     
-    res.json({
-        msg: 'list API - Controller',
-        q, 
-        nombre, 
-        apikey,
-        page,
-        limit
-    });
+    const data = await User.findAll();
+    //const data = await User.findOne({ id: 1});
+
+    res.handler.respondWithData(data,'list API - Controller');
+    res.handler.respondHttpUnauthorized();
+
+    
 }

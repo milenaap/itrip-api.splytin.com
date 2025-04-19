@@ -4,8 +4,12 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "dev": "nodemon app.js",
+    "db:connection": "node src/scripts/dbTestConnection.js",
+    "db:reset": "node src/scripts/dbReset.js",
+    "db:alter": "node src/scripts/dbAlter.js",
+    "make:controller": "node scripts/makeController.js"
+
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
-    "express-validator": "^7.2.1"
+    "express-validator": "^7.2.1",
+    "mysql2": "^3.14.0",
+    "sequelize": "^6.37.7"
   }
 }
