@@ -4,7 +4,6 @@ import User from '../../models/User.js';
 
 
 export const userListController = async(req = request, res = response) => {
-    
 
     try {
         
@@ -15,7 +14,5 @@ export const userListController = async(req = request, res = response) => {
         console.error('❌ Error en userListController:', error);
         return res.handler.respondHttpInternalError(error.message);
     }
-
-    
 
 }
