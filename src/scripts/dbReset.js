@@ -1,4 +1,4 @@
-import sequelize from '../datatabase/settings/config.js';
+import sequelize from '../database/settings/config.js';
 /**********
  * Models
  **********/
@@ -7,7 +7,7 @@ import '../models/User.js';
 /**********
  * Seeders
  **********/
-import { seedUsers } from '../datatabase/seeders/userSeeder.js';
+import { seedUsers } from '../database/seeders/userSeeder.js';
 
 
 

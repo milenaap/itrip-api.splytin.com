@@ -1,6 +1,8 @@
 // src/scripts/dbAlter.js
 import sequelize from '../database/settings/config.js';
-import '../models/users.js'; // importa todos los modelos
+import User from '../models/User.js';
+
+
 
 async function syncAlter() {
   try {

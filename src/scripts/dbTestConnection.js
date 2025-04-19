@@ -1,5 +1,5 @@
 // testConnection.js
-import sequelize from '../datatabase/settings/config.js';
+import sequelize from '../database/settings/config.js';
 
 async function dbTestConnection() {
   try {

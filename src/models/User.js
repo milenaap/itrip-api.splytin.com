@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../datatabase/settings/config.js";
+import sequelize from "../database/settings/config.js";
 
 
 
@@ -16,6 +16,10 @@ const User = sequelize.define('User', {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    is_state: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 }, {
     tableName: 'users',
