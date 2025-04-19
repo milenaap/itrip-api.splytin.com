@@ -28,9 +28,10 @@ npm install module-alias                // Alias @ src
 
 ```sh
 
-node app.js
+npm run dev
 
-nodemon app.js
+npm run db:connection                   // Test DB connection
+
 
 ```
 
