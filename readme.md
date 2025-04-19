@@ -7,12 +7,19 @@
 
 npm init -y
 
-npm i express                   // Express
-npm i express-validator         // Validator fields
-npm i bcryptjs                  // Encriptar password
+npm i express                           // Express
+npm i express-validator                 // Validator fields
+npm i bcryptjs                          // Encriptar password
 
-npm i dotenv                    // DotEnv
-npm i cors                      // Cors
+npm i dotenv                            // DotEnv
+npm i cors                              // Cors
+
+
+npm install sequelize mysql2            // ORM Sequelize
+
+
+npm install module-alias                // Alias @ src
+
 
 ```
 
@@ -26,19 +33,6 @@ node app.js
 nodemon app.js
 
 ```
-
-
-
-## Sequelize - ORM
-
-```sh
-
-npm install sequelize mysql2
-
-```
-
-
-
 
 
 
