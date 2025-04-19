@@ -25,7 +25,43 @@ export const seedUsers = async () => {
       password: 'Splytin2024',
       role: EnumRole.ADMIN,
       image_url: 'https://i.pravatar.cc/150?img=2'
+    },
+    {
+      name: 'Dilan',
+      email: 'dilandarren@gmail.com',
+      password: 'Splytin2024',
+      role: EnumRole.ADMIN,
+      image_url: 'https://i.pravatar.cc/150?img=3'
+    },
+    {
+      name: 'Dariana',
+      email: 'dorianadamiled@gmail.com',
+      password: 'Splytin2024',
+      role: EnumRole.ADMIN,
+      image_url: 'https://i.pravatar.cc/150?img=4'
+    },
+    {
+      name: 'Max',
+      email: 'max16506@gmail.com',
+      password: 'Splytin2024',
+      role: EnumRole.ADMIN,
+      image_url: 'https://i.pravatar.cc/150?img=5'
+    },
+    {
+      name: 'Manager',
+      email: 'manager@splytin.com',
+      password: 'Splytin2024',
+      role: EnumRole.MANAGER,
+      image_url: 'https://i.pravatar.cc/150?img=6'
+    },
+    {
+      name: 'User',
+      email: 'user@splytin.com',
+      password: 'Splytin2024',
+      role: EnumRole.USER,
+      image_url: 'https://i.pravatar.cc/150?img=7'
     }
+
   ];
 
   const userStatus = await UserStatus.findOne({ where: { name: EnumUserStatus.STATUS_ACTIVE_NAME } });
