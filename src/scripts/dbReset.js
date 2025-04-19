@@ -2,12 +2,19 @@ import sequelize from '../database/settings/config.js';
 /**********
  * Models
  **********/
+import '../models/UserStatus.js'; 
 import '../models/User.js'; 
+import '../models/Role.js'; 
+import '../models/Ability.js'; 
+import '../models/RoleUser.js'; 
+import '../models/AbilityUser.js'; 
 
 /**********
  * Seeders
  **********/
-import { seedUsers } from '../database/seeders/userSeeder.js';
+import { seedUsers } from '../database/seeders/users/userSeeder.js';
+import { seedUserStatuses } from '../database/seeders/userStatuses/userStatusSeeder.js';
+import { seedRoles } from '../database/seeders/roles/roleSeeder.js';
 
 
 
@@ -20,7 +27,12 @@ async function resetDatabase() {
     await sequelize.sync({ force: true });
     console.log('🧨 Base de datos restablecida');
 
-    await seedUsers(); // semilla inicial
+
+    await seedUserStatuses();
+    await seedRoles();
+
+    await seedUsers();
+
     console.log('✅ Datos sembrados correctamente');
 
 
