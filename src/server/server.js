@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import authRoutes from '../routes/authRoutes.js';
 import userRoutes from '../routes/userRoutes.js';
 import { attachBaseController } from '../middlewares/attachBaseController.js';
 
@@ -9,6 +10,7 @@ export class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
+        this.authPath = '/api/auth';
         this.userPath = '/api/users';
 
         // Midlewares
@@ -39,7 +41,9 @@ export class Server {
 
     routes(){
         
-        this.app.use( this.userPath , userRoutes)
+        this.app.use( this.authPath , authRoutes);
+
+        this.app.use( this.userPath , userRoutes);
 
         //TODO Others routes
         
