@@ -34,6 +34,14 @@ User.belongsToMany(Role, {
   as: 'roles'
 });
 
+Role.belongsToMany(User, {
+  through: RoleUser,
+  foreignKey: 'role_id',
+  otherKey: 'user_id',
+  as: 'users'
+});
+
+
 
 User.belongsToMany(Ability, {
   through: AbilityUser,

@@ -11,10 +11,7 @@ export const authLoginController = async(req, res = response) => {
 
     try {
 
-
         const user = await User.findOne({ where: { email } });
-
-        console.log(user);
 
         if(!user){
             return res.status(400).json({
@@ -37,8 +34,6 @@ export const authLoginController = async(req, res = response) => {
             token,
             user,
         })
-
-
         
     } catch (error) {
         res.status(500).json({
