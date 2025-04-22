@@ -1,15 +1,14 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../database/settings/config.js';
-import User from './User.js';
 
-const Session = sequelize.define('UserSession', {
+const UserSession = sequelize.define('UserSession', {
   id: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT.UNSIGNED,
     primaryKey: true,
     autoIncrement: true
   },
   user_id: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT.UNSIGNED,
     allowNull: false,
   },
   token: {
@@ -39,4 +38,4 @@ const Session = sequelize.define('UserSession', {
 });
 
 
-export default Session;
+export default UserSession;
