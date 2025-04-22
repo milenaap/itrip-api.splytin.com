@@ -1,21 +1,16 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../database/settings/config.js';
-import UserStatus from './UserStatus.js';
+
 
 const User = sequelize.define('User', {
   id: {
-    type: DataTypes.BIGINT.UNSIGNED, // ¡clave!
+    type: DataTypes.BIGINT.UNSIGNED,
     autoIncrement: true,
     primaryKey: true
   },
   user_status_id: {
     type: DataTypes.BIGINT.UNSIGNED,
     allowNull: false,
-    references: {
-      model: UserStatus,
-      key: 'id'
-    },
-    onDelete: 'CASCADE'
   },
   name: {
     type: DataTypes.STRING,
@@ -44,12 +39,21 @@ const User = sequelize.define('User', {
   }
 }, {
   tableName: 'users',
-  timestamps: true
+  timestamps: true,
+  paranoid: true // para habilitar soft deletes
 });
 
-User.belongsTo(UserStatus, {
-  foreignKey: 'user_status_id',
-  as: 'status'
-});
+
+
+User.prototype.toJSON = function() {
+  
+  const values = { ...this.get() };
+
+  delete values.password;
+  delete values.remember_token;
+
+  return values;
+}
+
 
 export default User;

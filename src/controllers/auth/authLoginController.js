@@ -9,12 +9,12 @@ export const authLoginController = async(req, res = response) => {
     
     const { email, password } = req.body; 
 
-
-    console.log("pasa");
-
     try {
 
-        const user = await User.findOne({ email });
+
+        const user = await User.findOne({ where: { email } });
+
+        console.log(user);
 
         if(!user){
             return res.status(400).json({
@@ -22,7 +22,7 @@ export const authLoginController = async(req, res = response) => {
             });
         }
 
-        const validPassword = bcrypt.compare(password, user.password);
+        const validPassword = await bcrypt.compare(password, user.password);
 
         if( !validPassword ){
             return res.status(400).json({

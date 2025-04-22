@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../database/settings/config.js';
-import AbilityGroup from './AbilityGroup.js';
+
 
 const Ability = sequelize.define('Ability', {
   id: {
@@ -20,11 +20,6 @@ const Ability = sequelize.define('Ability', {
   ability_group_id: {
     type: DataTypes.BIGINT.UNSIGNED,
     allowNull: false,
-    references: {
-      model: AbilityGroup,
-      key: 'id'
-    },
-    onDelete: 'CASCADE'
   }
 }, {
   tableName: 'abilities',
@@ -32,9 +27,6 @@ const Ability = sequelize.define('Ability', {
   paranoid: true
 });
 
-Ability.belongsTo(AbilityGroup, {
-  foreignKey: 'ability_group_id',
-  as: 'group'
-});
+
 
 export default Ability;

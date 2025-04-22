@@ -9,12 +9,20 @@ import '../models/Ability.js';
 import '../models/RoleUser.js'; 
 import '../models/AbilityUser.js'; 
 
+
+/**********
+ * Relaciones entre modelos
+ **********/
+import '../models/initAssociations.js';
+
+
 /**********
  * Seeders
  **********/
 import { seedUsers } from '../database/seeders/users/userSeeder.js';
 import { seedUserStatuses } from '../database/seeders/userStatuses/userStatusSeeder.js';
 import { seedRoles } from '../database/seeders/roles/roleSeeder.js';
+
 
 
 

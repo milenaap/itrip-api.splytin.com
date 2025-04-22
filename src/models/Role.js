@@ -9,7 +9,8 @@ const Role = sequelize.define('Role', {
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
   description: {
     type: DataTypes.STRING,
@@ -20,5 +21,8 @@ const Role = sequelize.define('Role', {
   timestamps: true,
   paranoid: true
 });
+
+
+
 
 export default Role;
