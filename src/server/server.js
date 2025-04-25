@@ -3,6 +3,7 @@ import cors from 'cors';
 import authRoutes from '../routes/authRoutes.js';
 import userRoutes from '../routes/userRoutes.js';
 import categoryRoutes from '../routes/categoryRoutes.js';
+import itemRoutes from '../routes/itemRoutes.js';
 import { attachBaseController } from '../middlewares/attachBaseController.js';
 
 
@@ -11,9 +12,20 @@ export class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
-        this.authPath = '/api/auth';
-        this.userPath = '/api/users';
-        this.categoryPath = '/api/categories';
+        this.path = {
+            auth: '/api/auth',
+            users: '/api/users',
+            categories: '/api/categories',
+            items: '/api/items' 
+        }
+
+
+        // this.authPath = '/api/auth';
+        // this.userPath = '/api/users';
+        // this.categoryPath = '/api/categories';
+
+
+
 
         // Midlewares
         this.midlewares();
@@ -43,11 +55,13 @@ export class Server {
 
     routes(){
         
-        this.app.use( this.authPath , authRoutes);
+        this.app.use( this.path.auth , authRoutes);
 
-        this.app.use( this.userPath , userRoutes);
+        this.app.use( this.path.users , userRoutes);
 
-        this.app.use( this.categoryPath , categoryRoutes);
+        this.app.use( this.path.categories , categoryRoutes);
+
+        this.app.use( this.path.items , itemRoutes);
 
         //TODO Others routes
         
