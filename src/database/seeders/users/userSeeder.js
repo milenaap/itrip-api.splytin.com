@@ -13,18 +13,18 @@ export const seedUsers = async () => {
 
   const usersToCreate = [
     {
-      name: 'Milena',
-      email: 'darimile@gmail.com',
-      password: 'Splytin2024',
-      role: EnumRole.ADMIN,
-      image_url: 'https://i.pravatar.cc/150?img=1'
-    },
-    {
       name: 'Dorian',
       email: 'doriandarren1@gmail.com',
       password: 'Splytin2024',
       role: EnumRole.ADMIN,
       image_url: 'https://i.pravatar.cc/150?img=2'
+    },
+    {
+      name: 'Milena',
+      email: 'darimile@gmail.com',
+      password: 'Splytin2024',
+      role: EnumRole.ADMIN,
+      image_url: 'https://i.pravatar.cc/150?img=1'
     },
     {
       name: 'Dilan',
@@ -92,9 +92,6 @@ export const seedUsers = async () => {
 
     // Buscar rol
     const role = await Role.findOne({ where: { name: item.role.toLowerCase() } });
-
-
-    console.log();
 
     if (!role) {
       console.warn(`⚠️ Rol "${item.role}" no existe`);

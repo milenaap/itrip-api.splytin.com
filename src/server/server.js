@@ -19,21 +19,12 @@ export class Server {
             items: '/api/items' 
         }
 
-
-        // this.authPath = '/api/auth';
-        // this.userPath = '/api/users';
-        // this.categoryPath = '/api/categories';
-
-
-
-
         // Midlewares
         this.midlewares();
 
         // Rutas app
         this.routes();
     }
-
 
 
     midlewares(){
