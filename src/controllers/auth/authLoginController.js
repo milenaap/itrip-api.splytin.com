@@ -2,6 +2,7 @@ import { response } from "express";
 import bcrypt from 'bcryptjs';
 import User from "../../models/User.js";
 import { generateJWT } from "../../helpers/jwt/generateJWT.js";
+import { MessageChannel } from "../../helpers/messages/MessageChannel.js";
 
 
 /**
@@ -9,6 +10,10 @@ import { generateJWT } from "../../helpers/jwt/generateJWT.js";
  * @param {import('express').Response & { handler: import('../../helpers/controllers/baseController.js').BaseController }} res
  */
 export const authLoginController = async(req, res = response) => {
+
+    await MessageChannel.send('Prueba', 'Prueba Login');
+
+    console.log("PAsa");
     
     const { email, password } = req.body; 
 
