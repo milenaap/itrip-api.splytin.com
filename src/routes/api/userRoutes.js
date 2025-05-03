@@ -5,6 +5,7 @@ import { userShowController } from '../../controllers/users/userShowController.j
 import { userStoreController } from '../../controllers/users/userStoreController.js';
 import { userUpdateController } from '../../controllers/users/userUpdateController.js';
 import { userDeleteController } from '../../controllers/users/userDeleteController.js';
+import { formParser } from '../../middlewares/formParser.js';
 
 
 
@@ -15,9 +16,9 @@ router.get('/', userListController);
 
 router.get('/:id', userShowController);
 
-router.post('/', userStoreController);
+router.post('/', [ formParser ], userStoreController);
 
-router.put('/:id', userUpdateController);
+router.put('/:id', [ formParser ], userUpdateController);
 
 router.delete('/:id', userDeleteController);
 

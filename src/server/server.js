@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import authRoutes from '../routes/authRoutes.js';
-import userRoutes from '../routes/userRoutes.js';
-import categoryRoutes from '../routes/categoryRoutes.js';
-import itemRoutes from '../routes/itemRoutes.js';
+import authRoutes from '../routes/api/authRoutes.js';
+import userRoutes from '../routes/api/userRoutes.js';
+import categoryRoutes from '../routes/api/categoryRoutes.js';
+import itemRoutes from '../routes/api/itemRoutes.js';
 import { attachBaseController } from '../middlewares/attachBaseController.js';
 
 
@@ -13,10 +13,10 @@ export class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.path = {
-            auth: '/api/auth',
-            users: '/api/users',
-            categories: '/api/categories',
-            items: '/api/items' 
+            auth: '/api/v1/auth',
+            users: '/api/v1/users',
+            categories: '/api/v1/categories',
+            items: '/api/v1/items' 
         }
 
         // Midlewares
@@ -37,6 +37,9 @@ export class Server {
 
         // Lectura y parseo del body
         this.app.use( express.json() );
+
+        // Form-data del body
+        this.app.use(express.urlencoded({ extended: true })); // para form-data
 
         // BaseController
         this.app.use( attachBaseController );

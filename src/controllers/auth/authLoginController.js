@@ -5,6 +5,10 @@ import User from "../../models/User.js";
 import { generateJWT } from "../../helpers/jwt/generateJWT.js";
 
 
+/**
+ * @param {import('express').Request} req
+ * @param {import('express').Response & { handler: import('../../helpers/controllers/baseController.js').BaseController }} res
+ */
 export const authLoginController = async(req, res = response) => {
     
     const { email, password } = req.body; 
@@ -14,31 +18,23 @@ export const authLoginController = async(req, res = response) => {
         const user = await User.findOne({ where: { email } });
 
         if(!user){
-            return res.status(400).json({
-                message: 'Usuario / Password no son correctos - email'
-            });
+            return res.handler.respondHttpBadRequest('Usuario / Password no son correctos - email');
         }
 
         const validPassword = await bcrypt.compare(password, user.password);
 
         if( !validPassword ){
-            return res.status(400).json({
-                message: 'Usuario / Password no son correctos - password'
-            });
+            return res.handler.respondHttpBadRequest('Usuario / Password no son correctos - password');
         }
 
         const token = await generateJWT(user.id);
 
+        const r = { token, user, };
 
-        res.json({
-            token,
-            user,
-        })
+        res.handler.respondWithData(r, 'Auth OK');
         
     } catch (error) {
-        res.status(500).json({
-            message: 'Error. Contacte con el Administador'
-        });
+        res.handler.respondHttpInternalError('Error. Contacte con el Administador');
     }
 
 }
