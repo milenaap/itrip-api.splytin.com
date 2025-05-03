@@ -11,9 +11,7 @@ import { MessageChannel } from "../../helpers/messages/MessageChannel.js";
  */
 export const authLoginController = async(req, res = response) => {
 
-    await MessageChannel.send('Prueba', 'Prueba Login');
-
-    console.log("PAsa");
+    await MessageChannel.send('Prueba', 'Prueba Login', true);
     
     const { email, password } = req.body; 
 
