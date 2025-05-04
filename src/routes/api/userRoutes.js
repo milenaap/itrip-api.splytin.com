@@ -6,21 +6,28 @@ import { userStoreController } from '../../controllers/users/userStoreController
 import { userUpdateController } from '../../controllers/users/userUpdateController.js';
 import { userDeleteController } from '../../controllers/users/userDeleteController.js';
 import { formParser } from '../../middlewares/formParser.js';
+import { validateJWT } from '../../middlewares/validateJWT.js';
 
 
 
 const router = Router();
 
 
-router.get('/', userListController);
+router.get('/', [ validateJWT ], userListController);
 
-router.get('/:id', userShowController);
+router.get('/:id', [ validateJWT ], userShowController);
 
-router.post('/', [ formParser ], userStoreController);
+router.post('/', [ 
+    formParser, 
+    validateJWT 
+], userStoreController);
 
-router.put('/:id', [ formParser ], userUpdateController);
+router.put('/:id', [ 
+    formParser, 
+    validateJWT 
+], userUpdateController);
 
-router.delete('/:id', userDeleteController);
+router.delete('/:id',[ validateJWT ], userDeleteController);
 
 
 export default router;

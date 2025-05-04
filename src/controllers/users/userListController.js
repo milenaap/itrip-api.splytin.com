@@ -8,9 +8,7 @@ const userRepo = new UserRepository();
 export const userListController = async(req = request, res = response) => {
 
     try {
-
-        console.log(User.associations);
-
+        
         const data = await userRepo.list();
         return res.handler.respondWithData(data,'list API - Controller');
 
