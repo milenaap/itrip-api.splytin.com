@@ -13,7 +13,7 @@ export const userListController = async(req = request, res = response) => {
 
     try {
         const data = await userRepo.list();
-        return res.handler.respondWithData('list API - Controller', data);
+        return res.handler.respondWithData('User list', data);
 
     } catch (error) {
         console.error('❌ Error en userListController:', error);

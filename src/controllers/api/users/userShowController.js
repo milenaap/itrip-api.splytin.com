@@ -20,7 +20,7 @@ export const userShowController = async(req, res = response) => {
     try {
         const data = await userRepo.show(id);
 
-        return res.handler.respondWithData(data, 'OK - show');
+        return res.handler.respondWithData('User show', data);
 
     } catch (error) {
         
