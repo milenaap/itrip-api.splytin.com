@@ -47,8 +47,8 @@ router.put('/:id', [
 
      // Validate :id param
     param('id')
-    .isInt().withMessage('User ID must be an integer')
-    .custom(checkIdExists(User)),
+        .isInt().withMessage('User ID must be an integer')
+        .custom(checkIdExists(User)),
 
     body('name')
         .optional()
@@ -76,11 +76,9 @@ router.put('/:id', [
 router.delete('/:id',[ 
     validateJWT,
     formParser,
-    
-    // Validate :id param
     param('id')
-    .isInt().withMessage('User ID must be an integer')
-    .custom(checkIdExists(User)),
+        .isInt().withMessage('User ID must be an integer')
+        .custom(checkIdExists(User)),
 
 ], userDeleteController);
 
