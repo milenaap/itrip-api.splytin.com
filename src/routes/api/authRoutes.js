@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { authLoginController } from "../../controllers/auth/authLoginController.js";
 import { formParser } from "../../middlewares/formParser.js";
+import { authLoginController } from "../../controllers/api/auth/authLoginController.js";
 
 
 

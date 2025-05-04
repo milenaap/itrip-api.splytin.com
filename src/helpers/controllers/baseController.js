@@ -24,7 +24,7 @@ export class BaseController {
   }
 
   // 200 OK
-  respondWithData(data = null, message = null, success = true) {
+  respondWithData(message = 'OK', data = null, success = true) {
     this.setCode(200);
     return this.respond({
       data,
@@ -36,7 +36,7 @@ export class BaseController {
   }
 
   // 422 o cualquier error
-  respondWithError(message = "", errors = null, code = 422) {
+  respondWithError(message = 'KO', errors = null, code = 422) {
     this.setCode(code);
     return this.respond({
       errors: errors ? [errors] : null,
