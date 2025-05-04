@@ -14,8 +14,6 @@ const userRepo = new UserRepository();
 export const userShowController = async(req, res = response) => {
     
     const { id } = req.params;
-    
-    console.log(id);
 
     try {
         const data = await userRepo.show(id);
@@ -23,15 +21,9 @@ export const userShowController = async(req, res = response) => {
         return res.handler.respondWithData('User show', data);
 
     } catch (error) {
-        
+        console.error('❌ Error en userListController:', error);
+        return res.handler.respondHttpInternalError(error.message);
     }
-
-    const data = {};
-
-    return res.json({
-        msg: 'show API - Controller',
-        data
-    });
 
 }
 

@@ -33,7 +33,7 @@ export const authLoginController = async(req, res = response) => {
 
         const r = { token, user, };
 
-        res.handler.respondWithData(r, 'Auth OK');
+        res.handler.respondWithData('Login OK', r);
         
     } catch (error) {
         res.handler.respondHttpInternalError('Error. Contacte con el Administador');

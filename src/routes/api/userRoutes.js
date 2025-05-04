@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { check, param } from 'express-validator';
+import { body, check, param } from 'express-validator';
 import { userListController } from '../../controllers/api/users/userListController.js';
 import { userShowController } from '../../controllers/api/users/userShowController.js';
 import { userStoreController } from '../../controllers/api/users/userStoreController.js';
@@ -8,8 +8,8 @@ import { userDeleteController } from '../../controllers/api/users/userDeleteCont
 import { formParser } from '../../middlewares/formParser.js';
 import { validateJWT } from '../../middlewares/validateJWT.js';
 import { validateFields } from '../../middlewares/validateFields.js';
-import User from '../../models/User.js';
 import { checkIdExists } from '../../helpers/validators/checkIdExists.js';
+import User from '../../models/User.js';
 import UserStatus from '../../models/UserStatus.js';
 
 

@@ -39,14 +39,14 @@ export class UserRepository extends BaseRepository {
 
   // 📌 Update
   async update(id, data) {
-    const user = await this.findById(id);
+    const user = await User.findByPk(id);
     if (!user) return null;
     return await user.update(data);
   }
 
   // 📌 Destroy (soft-delete)
   async destroy(id) {
-    const user = await this.findById(id);
+    const user = await User.findByPk(id);
     if (!user) return null;
     return await user.destroy();
   }

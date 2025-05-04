@@ -22,13 +22,20 @@ export const userUpdateController = async(req, res = response) => {
     } = req.body;
 
 
+    const dataToUpdate = {};
 
-    const salt = bcrypt.genSaltSync();
-    dataNew.password = bcrypt.hashSync(password, salt);
+
+    if (user_status_id !== undefined) dataToUpdate.user_status_id = user_status_id;
+    if (name !== undefined) dataToUpdate.name = name;
+    if (email !== undefined) dataToUpdate.email = email;
+    if (password) {
+        const salt = bcrypt.genSaltSync();
+        dataToUpdate.password = bcrypt.hashSync(password, salt);
+    }
 
 
     try {
-        const data = await userRepo.update(id, data);
+        const data = await userRepo.update(id, dataToUpdate);
         return res.handler.respondWithData('User list', data);
 
     } catch (error) {
