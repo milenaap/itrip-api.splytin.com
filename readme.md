@@ -38,10 +38,6 @@ npm run db:connection                   // Test DB connection
 ```
 
 
-
-
-
-
 ## Opcional Handlebars
 
 Fuente: https://github.com/pillarjs/hbs
