@@ -39,10 +39,6 @@ npm run db:reset                       // DB Reset Tables
 ```
 
 
-
-
-
-
 ## Opcional Handlebars
 
 Fuente: https://github.com/pillarjs/hbs
