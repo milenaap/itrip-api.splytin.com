@@ -32,7 +32,8 @@ npm install multer                      // Para parse form-data
 
 npm run dev
 
-npm run db:connection                   // Test DB connection
+npm run db:connection                  // DB Test connection
+npm run db:reset                       // DB Reset Tables
 
 
 ```

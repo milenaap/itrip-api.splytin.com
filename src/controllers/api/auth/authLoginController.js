@@ -1,13 +1,13 @@
 import { response } from "express";
 import bcrypt from 'bcryptjs';
-import User from "../../models/User.js";
-import { generateJWT } from "../../helpers/jwt/generateJWT.js";
-import { MessageChannel } from "../../helpers/messages/MessageChannel.js";
+import User from "../../../models/User.js";
+import { generateJWT } from "../../../helpers/jwt/generateJWT.js";
+import { MessageChannel } from "../../../helpers/messages/MessageChannel.js";
 
 
 /**
  * @param {import('express').Request} req
- * @param {import('express').Response & { handler: import('../../helpers/controllers/baseController.js').BaseController }} res
+ * @param {import('express').Response & { handler: import('../../../helpers/controllers/baseController.js').BaseController }} res
  */
 export const authLoginController = async(req, res = response) => {
 
@@ -33,7 +33,7 @@ export const authLoginController = async(req, res = response) => {
 
         const r = { token, user, };
 
-        res.handler.respondWithData(r, 'Auth OK');
+        res.handler.respondWithData('Login OK', r);
         
     } catch (error) {
         res.handler.respondHttpInternalError('Error. Contacte con el Administador');
