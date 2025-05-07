@@ -22,19 +22,3 @@ export const userListController = async(req = request, res = response) => {
 
 }
 
-
-
-import { response } from "express";
-
-export const userListController = async(req, res = response) => {
-
-    //TODO
-
-    const data = await User.findby();
-
-    return res.handler.respondWithData('List', data);
-
-    return res.json({
-        msg: 'API - userList'
-    });
-}
