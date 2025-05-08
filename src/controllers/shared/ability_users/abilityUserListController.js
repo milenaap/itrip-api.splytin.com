@@ -1,6 +1,6 @@
 import { response } from "express";
 
-export const abilityUsersListController = async(req, res = response) => {
+export const abilityUserListController = async(req, res = response) => {
 
     //TODO
 

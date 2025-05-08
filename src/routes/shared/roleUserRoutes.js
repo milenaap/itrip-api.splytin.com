@@ -9,7 +9,7 @@ const router = Router();
  */
 router.get('/', [
     validateJWT,
-], abilityUsersListController);
+], roleUserListController);
 
 /**
  * Show
@@ -18,28 +18,28 @@ router.get('/:id', [
     validateJWT,
     check('name', 'El name es obligatorio').not().isEmpty(),
     validateFields
-], abilityUsersShowController);
+], roleUserShowController);
 
 /**
  * Store
  */
 router.post('/', [
     validateJWT,
-], abilityUsersStoreController);
+], roleUserStoreController);
 
 /**
  * Update
  */
 router.put('/:id', [
     validateJWT,
-], abilityUsersUpdateController);
+], roleUserUpdateController);
 
 /**
  * Delete
  */ 
 router.delete('/:id', [
     validateJWT,
-], abilityUsersDeleteController);
+], roleUserDeleteController);
 
 
 export default router;

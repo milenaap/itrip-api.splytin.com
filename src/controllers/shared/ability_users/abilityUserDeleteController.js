@@ -1,6 +1,6 @@
 import { response } from "express";
 
-export const abilityUsersDeleteController = async(req, res = response) => {
+export const abilityUserDeleteController = async(req, res = response) => {
 
     //TODO
 

@@ -1,6 +1,6 @@
 import { response } from "express";
 
-export const abilityUsersUpdateController = async(req, res = response) => {
+export const abilityUserUpdateController = async(req, res = response) => {
 
     //TODO
 
