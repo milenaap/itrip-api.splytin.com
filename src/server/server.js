@@ -12,7 +12,14 @@ export class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
-        this.path = {
+        this.path.api = {
+            auth: '/api/v1/auth',
+            users: '/api/v1/users',
+            categories: '/api/v1/categories',
+            items: '/api/v1/items' 
+        }
+
+        this.path.shared = {
             auth: '/api/v1/auth',
             users: '/api/v1/users',
             categories: '/api/v1/categories',
@@ -49,13 +56,13 @@ export class Server {
 
     routes(){
         
-        this.app.use( this.path.auth , authRoutes);
+        this.app.use( this.path.api.auth , authRoutes);
 
-        this.app.use( this.path.users , userRoutes);
+        this.app.use( this.path.api.users , userRoutes);
 
-        this.app.use( this.path.categories , categoryRoutes);
+        this.app.use( this.path.api.categories , categoryRoutes);
 
-        this.app.use( this.path.items , itemRoutes);
+        this.app.use( this.path.api.items , itemRoutes);
 
         //TODO Others routes
         
