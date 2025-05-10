@@ -4,6 +4,11 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { checkIdExists } from "../../helpers/validators/checkIdExists.js";
 import Ability from "../../models/Ability.js";
 import { validateJWT } from "../../middlewares/validateJWT.js";
+import { abilityListController } from "../../controllers/shared/abilities/abilityListController.js";
+import { abilityShowController } from "../../controllers/shared/abilities/abilityShowController.js";
+import { abilityStoreController } from "../../controllers/shared/abilities/abilityStoreController.js";
+import { abilityUpdateController } from "../../controllers/shared/abilities/abilityUpdateController.js";
+import { abilityDeleteController } from "../../controllers/shared/abilities/abilityDeleteController.js";
 
 const router = Router();
 
