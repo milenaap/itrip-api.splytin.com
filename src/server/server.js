@@ -1,42 +1,56 @@
 import express from 'express';
 import cors from 'cors';
+import { attachBaseController } from '../middlewares/attachBaseController.js';
+
 import authRoutes from '../routes/api/authRoutes.js';
-import userRoutes from '../routes/api/userRoutes.js';
 import categoryRoutes from '../routes/api/categoryRoutes.js';
 import itemRoutes from '../routes/api/itemRoutes.js';
-import { attachBaseController } from '../middlewares/attachBaseController.js';
+
+import abilityGroupRoutes from '../routes/shared/abilityGroupRoutes.js';
+import abilityRoutes from '../routes/shared/abilityRoutes.js';
+import abilityUserRoutes from '../routes/shared/abilityUserRoutes.js';
+import roleUserRoutes from '../routes/shared/roleUserRoutes.js';
+import userRoutes from '../routes/shared/userRoutes.js';
+import devRoutes from '../routes/dev/devRoutes.js';
+
 
 
 export class Server {
     
     constructor() {
+        
         this.app = express();
         this.port = process.env.PORT;
+
         this.path.api = {
             auth: '/api/v1/auth',
-            users: '/api/v1/users',
             categories: '/api/v1/categories',
-            items: '/api/v1/items' 
+            items: '/api/v1/items', 
         }
 
         this.path.shared = {
-            auth: '/api/v1/auth',
+            abilityGroups: '/api/v1/ability-groups',
+            abilities: '/api/v1/abilities',
+            abilityUsers: '/api/v1/ability-users',
+            roleUsers: '/api/v1/ability-users',
             users: '/api/v1/users',
-            categories: '/api/v1/categories',
-            items: '/api/v1/items' 
+        }
+
+        this.path.dev = {
+            dev: '/api/v1/dev/test',
         }
 
         // Midlewares
         this.midlewares();
 
-        // Rutas app
+        // Routes app
         this.routes();
     }
 
 
     midlewares(){
 
-        // Directorio publico
+        // Dir public
         this.app.use( express.static('public') );
 
         //Cors
@@ -45,32 +59,41 @@ export class Server {
         // Lectura y parseo del body
         this.app.use( express.json() );
 
-        // Form-data del body
+        // Form-data body
         this.app.use(express.urlencoded({ extended: true })); // para form-data
 
-        // BaseController
+        // Base Controller
         this.app.use( attachBaseController );
 
     }
 
 
     routes(){
+
+        // shared
+        this.app.use( this.path.api.abilityGroups, abilityGroupRoutes);
+        this.app.use( this.path.api.abilities, abilityRoutes);
+        this.app.use( this.path.api.abilityUsers, abilityUserRoutes);
+        this.app.use( this.path.api.roleUsers, roleUserRoutes);
+        this.app.use( this.path.api.userUsers, userRoutes);
         
-        this.app.use( this.path.api.auth , authRoutes);
+        //dev
+        this.app.use( this.path.dev.devUsers, devRoutes);
 
-        this.app.use( this.path.api.users , userRoutes);
 
-        this.app.use( this.path.api.categories , categoryRoutes);
-
-        this.app.use( this.path.api.items , itemRoutes);
-
+        // api
+        this.app.use( this.path.api.auth, authRoutes);
+        this.app.use( this.path.api.categories, categoryRoutes);
+        this.app.use( this.path.api.items, itemRoutes);
+        
+        
         //TODO Others routes
         
     }
 
 
     listen(){
-        this.app.listen( this.port, ()=> {
+        this.app.listen( this.port, () => {
             console.log(`Servidor ejecutandose en el puerto: ${ this.port }`);
         });
     }
