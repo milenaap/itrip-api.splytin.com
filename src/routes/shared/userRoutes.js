@@ -1,6 +1,12 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { validateFields } from "../middlewares/validate-fields.js";
+import { validateFields } from "../../middlewares/validateFields.js";
+import { validateJWT } from "../../middlewares/validateJWT.js";
+import { userListController } from "../../controllers/shared/user/userListController.js";
+import { userShowController } from "../../controllers/shared/user/userShowController.js";
+import { userStoreController } from "../../controllers/shared/user/userStoreController.js";
+import { userUpdateController } from "../../controllers/shared/user/userUpdateController.js";
+import { userDeleteController } from "../../controllers/shared/user/userDeleteController.js";
 
 const router = Router();
 

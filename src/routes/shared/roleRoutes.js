@@ -1,6 +1,11 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { validateFields } from "../middlewares/validate-fields.js";
+import { validateFields } from "../../middlewares/validateFields.js";
+import { roleListController } from "../../controllers/shared/roles/roleListController.js";
+import { roleShowController } from "../../controllers/shared/roles/roleShowController.js";
+import { roleStoreController } from "../../controllers/shared/roles/roleStoreController.js";
+import { roleUpdateController } from "../../controllers/shared/roles/roleUpdateController.js";
+import { roleDeleteController } from "../../controllers/shared/roles/roleDeleteController.js";
 
 const router = Router();
 
