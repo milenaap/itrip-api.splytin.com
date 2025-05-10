@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import { validateFields } from "../../middlewares/validateFields.js";
+import { validateJWT } from "../../middlewares/validateJWT.js";
 import { userListController } from "../../controllers/shared/user/userListController.js";
 import { userShowController } from "../../controllers/shared/user/userShowController.js";
 import { userStoreController } from "../../controllers/shared/user/userStoreController.js";

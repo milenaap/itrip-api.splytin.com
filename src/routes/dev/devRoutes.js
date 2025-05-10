@@ -8,7 +8,7 @@ const router = Router();
 /**
  * List
  */
-router.get('/', [], testControllerController);
+router.get('/', [], testController);
 
 
 

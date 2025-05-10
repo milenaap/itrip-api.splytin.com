@@ -21,14 +21,15 @@ export class Server {
         
         this.app = express();
         this.port = process.env.PORT;
+        //this.path = {};
 
-        this.path.api = {
+        this.pathApi = {
             auth: '/api/v1/auth',
             categories: '/api/v1/categories',
             items: '/api/v1/items', 
         }
 
-        this.path.shared = {
+        this.pathShared = {
             abilityGroups: '/api/v1/ability-groups',
             abilities: '/api/v1/abilities',
             abilityUsers: '/api/v1/ability-users',
@@ -36,7 +37,7 @@ export class Server {
             users: '/api/v1/users',
         }
 
-        this.path.dev = {
+        this.pathDev = {
             dev: '/api/v1/dev/test',
         }
 
@@ -71,20 +72,20 @@ export class Server {
     routes(){
 
         // shared
-        this.app.use( this.path.api.abilityGroups, abilityGroupRoutes);
-        this.app.use( this.path.api.abilities, abilityRoutes);
-        this.app.use( this.path.api.abilityUsers, abilityUserRoutes);
-        this.app.use( this.path.api.roleUsers, roleUserRoutes);
-        this.app.use( this.path.api.userUsers, userRoutes);
+        this.app.use( this.pathShared.abilityGroups, abilityGroupRoutes);
+        this.app.use( this.pathShared.abilities, abilityRoutes);
+        this.app.use( this.pathShared.abilityUsers, abilityUserRoutes);
+        this.app.use( this.pathShared.roleUsers, roleUserRoutes);
+        this.app.use( this.pathShared.userUsers, userRoutes);
         
         //dev
-        this.app.use( this.path.dev.devUsers, devRoutes);
+        this.app.use( this.pathDev.devUsers, devRoutes);
 
 
         // api
-        this.app.use( this.path.api.auth, authRoutes);
-        this.app.use( this.path.api.categories, categoryRoutes);
-        this.app.use( this.path.api.items, itemRoutes);
+        this.app.use( this.pathApi.auth, authRoutes);
+        this.app.use( this.pathApi.categories, categoryRoutes);
+        this.app.use( this.pathApi.items, itemRoutes);
         
         
         //TODO Others routes

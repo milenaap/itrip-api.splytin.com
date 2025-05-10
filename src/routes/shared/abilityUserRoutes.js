@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
 import { validateFields } from "../../middlewares/validateFields.js";
+import { validateJWT } from "../../middlewares/validateJWT.js";
 import { abilityUserListController } from "../../controllers/shared/ability_users/abilityUserListController.js";
 import { abilityUserShowController } from "../../controllers/shared/ability_users/abilityUserShowController.js";
 import { abilityUserStoreController } from "../../controllers/shared/ability_users/abilityUserStoreController.js";
