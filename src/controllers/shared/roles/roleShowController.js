@@ -1,6 +1,6 @@
 import { response } from "express";
 
-export const roleShowControllerController = async(req, res = response) => {
+export const roleShowController = async(req, res = response) => {
 
     //TODO
 
