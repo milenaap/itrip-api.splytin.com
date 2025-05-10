@@ -1,5 +1,4 @@
 import { response } from "express";
-import User from "../../../models/User.js";
 import { UserRepository } from "../../../repositories/users/userRepository.js";
 
 
@@ -26,4 +25,5 @@ export const userShowController = async(req, res = response) => {
     }
 
 }
+
 
