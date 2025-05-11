@@ -5,12 +5,12 @@ import { attachBaseController } from '../middlewares/attachBaseController.js';
 import authRoutes from '../routes/api/authRoutes.js';
 import categoryRoutes from '../routes/api/categoryRoutes.js';
 import itemRoutes from '../routes/api/itemRoutes.js';
+import userRoutes from '../routes/api/userRoutes.js';
 
 import abilityGroupRoutes from '../routes/shared/abilityGroupRoutes.js';
 import abilityRoutes from '../routes/shared/abilityRoutes.js';
 import abilityUserRoutes from '../routes/shared/abilityUserRoutes.js';
 import roleUserRoutes from '../routes/shared/roleUserRoutes.js';
-import userRoutes from '../routes/shared/userRoutes.js';
 import devRoutes from '../routes/dev/devRoutes.js';
 
 
@@ -27,6 +27,7 @@ export class Server {
             auth: '/api/v1/auth',
             categories: '/api/v1/categories',
             items: '/api/v1/items', 
+            users: '/api/v1/users',
         }
 
         this.pathShared = {
@@ -34,7 +35,6 @@ export class Server {
             abilities: '/api/v1/abilities',
             abilityUsers: '/api/v1/ability-users',
             roleUsers: '/api/v1/ability-users',
-            users: '/api/v1/users',
         }
 
         this.pathDev = {
@@ -76,7 +76,7 @@ export class Server {
         this.app.use( this.pathShared.abilities, abilityRoutes);
         this.app.use( this.pathShared.abilityUsers, abilityUserRoutes);
         this.app.use( this.pathShared.roleUsers, roleUserRoutes);
-        this.app.use( this.pathShared.users, userRoutes);
+        
         
         //dev
         this.app.use( this.pathDev.devUsers, devRoutes);
@@ -86,6 +86,7 @@ export class Server {
         this.app.use( this.pathApi.auth, authRoutes);
         this.app.use( this.pathApi.categories, categoryRoutes);
         this.app.use( this.pathApi.items, itemRoutes);
+        this.app.use( this.pathApi.users, userRoutes);
         
         
         //TODO Others routes
