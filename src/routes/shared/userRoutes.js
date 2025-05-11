@@ -2,11 +2,11 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validateFields } from "../../middlewares/validateFields.js";
 import { validateJWT } from "../../middlewares/validateJWT.js";
-import { userListController } from "../../controllers/shared/user/userListController.js";
-import { userShowController } from "../../controllers/shared/user/userShowController.js";
-import { userStoreController } from "../../controllers/shared/user/userStoreController.js";
-import { userUpdateController } from "../../controllers/shared/user/userUpdateController.js";
-import { userDeleteController } from "../../controllers/shared/user/userDeleteController.js";
+import { userListController } from "../../controllers/shared/users/userListController.js";
+import { userShowController } from "../../controllers/shared/users/userShowController.js";
+import { userStoreController } from "../../controllers/shared/users/userStoreController.js";
+import { userUpdateController } from "../../controllers/shared/users/userUpdateController.js";
+import { userDeleteController } from "../../controllers/shared/users/userDeleteController.js";
 
 const router = Router();
 

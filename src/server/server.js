@@ -76,7 +76,7 @@ export class Server {
         this.app.use( this.pathShared.abilities, abilityRoutes);
         this.app.use( this.pathShared.abilityUsers, abilityUserRoutes);
         this.app.use( this.pathShared.roleUsers, roleUserRoutes);
-        this.app.use( this.pathShared.userUsers, userRoutes);
+        this.app.use( this.pathShared.users, userRoutes);
         
         //dev
         this.app.use( this.pathDev.devUsers, devRoutes);
