@@ -15,14 +15,14 @@ const router = Router();
 /**
  * List
  */
-router.get('/', [
+router.get('/list', [
     validateJWT,
 ], abilityListController);
 
 /**
  * Show
  */
-router.get('/:id', [
+router.get('/show/:id', [
     validateJWT,
     check('name', 'El name es obligatorio').not().isEmpty(),
     param('id').custom( checkIdExists(Ability) ),
@@ -32,21 +32,21 @@ router.get('/:id', [
 /**
  * Store
  */
-router.post('/', [
+router.post('/store', [
     validateJWT,
 ], abilityStoreController);
 
 /**
  * Update
  */
-router.put('/:id', [
+router.put('/update/:id', [
     validateJWT,
 ], abilityUpdateController);
 
 /**
  * Delete
  */ 
-router.delete('/:id', [
+router.delete('/delete/:id', [
     validateJWT,
 ], abilityDeleteController);
 
