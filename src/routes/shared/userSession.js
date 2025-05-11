@@ -12,14 +12,14 @@ const router = Router();
 /**
  * List
  */
-router.get('/', [
+router.get('/list', [
     validateJWT,
 ], userSessionListController);
 
 /**
  * Show
  */
-router.get('/:id', [
+router.get('/show/:id', [
     validateJWT,
     check('name', 'El name es obligatorio').not().isEmpty(),
     validateFields
@@ -28,21 +28,21 @@ router.get('/:id', [
 /**
  * Store
  */
-router.post('/', [
+router.post('/store', [
     validateJWT,
 ], userSessionStoreController);
 
 /**
  * Update
  */
-router.put('/:id', [
+router.put('/update/:id', [
     validateJWT,
 ], userSessionUpdateController);
 
 /**
  * Delete
  */ 
-router.delete('/:id', [
+router.delete('/delete/:id', [
     validateJWT,
 ], userSessionDeleteController);
 

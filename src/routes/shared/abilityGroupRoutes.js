@@ -15,7 +15,7 @@ const router = Router();
 /**
  * List
  */
-router.get('/', [
+router.get('/list', [
     validateJWT,
 ], abilityGroupListController);
 
@@ -23,7 +23,7 @@ router.get('/', [
 /**
  * Show
  */
-router.get('/:id', [
+router.get('/show/:id', [
     validateJWT,
     check('name', 'El name es obligatorio').not().isEmpty(),
     validateFields
@@ -33,7 +33,7 @@ router.get('/:id', [
 /**
  * Store
  */
-router.post('/', [
+router.post('/store', [
     validateJWT,
 ], abilityGroupStoreController);
 
@@ -41,7 +41,7 @@ router.post('/', [
 /**
  * Update
  */
-router.put('/:id', [
+router.put('/update/:id', [
     validateJWT,
 ], abilityGroupUpdateController);
 
@@ -49,7 +49,7 @@ router.put('/:id', [
 /**
  * Delete
  */ 
-router.delete('/:id', [
+router.delete('/delete/:id', [
     validateJWT,
 ], abilityGroupDeleteController);
 
