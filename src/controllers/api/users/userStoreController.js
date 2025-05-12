@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import { UserRepository } from '../../../repositories/users/userRepository.js';
 
 
-const userRepo = new UserRepository();
+const repository = new UserRepository();
 
 
 
@@ -34,7 +34,7 @@ export const userStoreController = async(req, res = response) => {
 
     try {
 
-        const data = await userRepo.store(dataNew);
+        const data = await repository.store(dataNew);
 
         return res.handler.respondWithData(data, 'User created');
         

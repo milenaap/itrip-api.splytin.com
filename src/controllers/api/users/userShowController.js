@@ -3,7 +3,7 @@ import { UserRepository } from "../../../repositories/users/userRepository.js";
 
 
 
-const userRepo = new UserRepository();
+const repository = new UserRepository();
 
 
 /**
@@ -15,7 +15,7 @@ export const userShowController = async(req, res = response) => {
     const { id } = req.params;
 
     try {
-        const data = await userRepo.show(id);
+        const data = await repository.show(id);
 
         return res.handler.respondWithData('User show', data);
 

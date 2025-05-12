@@ -2,7 +2,7 @@ import { response, request } from 'express';
 import { UserRepository } from '../../../repositories/users/userRepository.js';
 
 
-const userRepo = new UserRepository();
+const repository = new UserRepository();
 
 
 /**
@@ -12,7 +12,7 @@ const userRepo = new UserRepository();
 export const userListController = async(req = request, res = response) => {
 
     try {
-        const data = await userRepo.list();
+        const data = await repository.list();
         return res.handler.respondWithData('User list', data);
 
     } catch (error) {

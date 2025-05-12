@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import { UserRepository } from "../../../repositories/users/userRepository.js";
 
 
-const userRepo = new UserRepository();
+const repository = new UserRepository();
 
 
 /**
@@ -35,7 +35,7 @@ export const userUpdateController = async(req, res = response) => {
 
 
     try {
-        const data = await userRepo.update(id, dataToUpdate);
+        const data = await repository.update(id, dataToUpdate);
         return res.handler.respondWithData('User list', data);
 
     } catch (error) {

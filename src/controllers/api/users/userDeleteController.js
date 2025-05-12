@@ -2,7 +2,7 @@ import { response } from "express";
 import { UserRepository } from '../../../repositories/users/userRepository.js';
 
 
-const userRepo = new UserRepository();
+const repository = new UserRepository();
 
 
 /**
@@ -14,7 +14,7 @@ export const userDeleteController = async(req, res = response) => {
     const { id } = req.params;
 
     try {
-        await userRepo.destroy(id);
+        await repository.destroy(id);
         return res.handler.respondWithData('User deleted', true);
     } catch (error) {
         console.error('❌ Error in userDeleteController:', error);
