@@ -39,23 +39,23 @@ export class UserRepository extends BaseRepository {
 
   // 📌 Update
   async update(id, data) {
-    const user = await User.findByPk(id);
-    if (!user) return null;
-    return await user.update(data);
+    const data = await User.findByPk(id);
+    if (!data) return null;
+    return await data.update(data);
   }
 
   // 📌 Destroy (soft-delete)
   async destroy(id) {
-    const user = await User.findByPk(id);
-    if (!user) return null;
-    return await user.destroy();
+    const data = await User.findByPk(id);
+    if (!data) return null;
+    return await data.destroy();
   }
 
   // 📌 Restaurar usuario soft-deleted
   async restore(id) {
-    const user = await User.findByPk(id, { paranoid: false });
-    if (!user) return null;
-    return await user.restore();
+    const data = await User.findByPk(id, { paranoid: false });
+    if (!data) return null;
+    return await data.restore();
   }
 
   // 📌 Buscar por nombre o correo
