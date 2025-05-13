@@ -1,4 +1,3 @@
-// userRepository.js
 import { BaseRepository } from '../../helpers/repositories/baseRepository.js';
 import User from '../../models/User.js';
 import { Op } from 'sequelize'; // Para queries avanzadas si las necesitas
